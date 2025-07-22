@@ -21,34 +21,34 @@ class BookingRepository {
         }
     }
 
-    // async update(bookingId, data){
-    //     try {
-    //         // await Booking.update(data,{
-    //         //     where:{
-    //         //         id:bookingId
-    //         //     }
-    //         // });
-    //         // return true;
+    async update(bookingId, data){
+        try {
+            // await Booking.update(data,{
+            //     where:{
+            //         id:bookingId
+            //     }
+            // });
+            // return true;
 
-    //         const booking = await Booking.findByPk(bookingId);
-    //         if(data.status){
-    //             booking.status = data.status;
-    //         }
-    //         if(data.flightId){
-    //             booking.flightId = data.flightId;
-    //         }
-    //         await booking.save();
-    //         return booking;
-    //     } catch (error) {
-    //         throw new AppError(
-    //             'RepositoryError',
-    //             'Cannot update the  Booking',
-    //             'There was some issue in updating the Booking, please try again later.',
-    //             StatusCodes.INTERNAL_SERVER_ERROR
-    //         );
-    //     }
+            const booking = await Booking.findByPk(bookingId);
+            if(data.status){
+                booking.status = data.status;
+            }
+            if(data.flightId){
+                booking.flightId = data.flightId;
+            }
+            await booking.save();
+            return booking;
+        } catch (error) {
+            throw new AppError(
+                'RepositoryError',
+                'Cannot update the  Booking',
+                'There was some issue in updating the Booking, please try again later.',
+                StatusCodes.INTERNAL_SERVER_ERROR
+            );
+        }
 
-    // }
+    }
 }
 
 module.exports = BookingRepository;
