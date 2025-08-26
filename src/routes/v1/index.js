@@ -7,6 +7,9 @@ const { BookingController }=require('../../controllers/index');
 
 // const channel = await createChannel();
 const bookingController = new BookingController();
+router.get('/info', (req, res) => {
+    return res.json({message: 'Booking Service API'});
+});
 router.post('/bookings',bookingController.create);
 router.post('/publish',bookingController.sendMessageToQueue);
 
